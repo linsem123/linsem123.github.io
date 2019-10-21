@@ -8,12 +8,12 @@
   
   
   
-  <title>How to learn effectively? | Aloha,I&#39;m Derek</title>
+  <title>Vue中Echarts组件获取点击数据 | Aloha,I&#39;m Derek</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="生活,学习,">
+    <meta name="keywords" content="编程,Echarts,">
   
 
   <script>
@@ -199,24 +199,24 @@
 
 <div class="post">
   <h1 class="article-title">
-    <span>How to learn effectively?</span>
+    <span>Vue中Echarts组件获取点击数据</span>
   </h1>
   <div class="article-top-meta">
     <span>
       发布 : 
-      2019-10-17
+      2019-10-21
     </span>
     
       <span>
         分类 : 
-          <a href="/categories/生活/">
-            生活
+          <a href="/categories/编程/">
+            编程
           </a>
       </span>
     
     
       <span>
-        浏览 : <span class="article-timer" data-identity="How-to-learn-effectively"></span>
+        浏览 : <span class="article-timer" data-identity="Vue中Echarts组件获取点击数据"></span>
       </span>
     
   </div>
@@ -225,30 +225,31 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h1 id="如何有效的进行学习？"><a href="#如何有效的进行学习？" class="headerlink" title="如何有效的进行学习？"></a>如何有效的进行学习？</h1><h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>有一个理论叫做“一万小时定律”，指的是任何一项技能，想要达到精通，都需要花一万个小时来进行练习。很明显，这个定律强调了练习时长对技能的重要性，以至于我们大多数人认为，只要练习的时长达到了，就能成为一个高手。<br>然而还有一些理论，大致的意思是只要方法得当，就能在很短的事件内精通一门技能。类似这样的理论，与“一万小时定律”明显是冲突的。<br>前者强调了<strong>练习时长</strong>的的重要性， 后者强调了<strong>练习方法</strong>的重要性。</p>
-<p><strong>《How to practice effectively》强调了练习的时长并不是我们精通一门技能的重要因素，而练习的质量和效率才是。</strong></p>
-<p>那么为什么呢？</p>
-<p>作者从生物学的角度进行了解释，在我们大脑的神经纤维上有一种叫做“髓磷脂”的物质，它的作用类似于导线上的绝缘层，它的存在越多，神经纤维在传递信号时的损失就会越少，能量损失越少，信号就会传递的越快，从而大脑控制我们身体的反映和速度也就越快。</p>
-<p>对于一项技能来说，需要我们的身体协调完成，当我们的大脑反映越快时，那就证明我们对于该项技能的掌握越好。</p>
-<p><strong>总结来讲，影响我们技能水平的本质是神经纤维上“髓磷脂”的多少，该物质越多，大脑对身体的控制信号传递就越快，因此我们对该技能的掌握就越好。</strong>该物质的存在越多，我们在完成该项技能时就会感觉到越轻松、越自信、越快。可见，“一万小时定律”是常常被大众误用的，仅仅考虑“训练时长”这个因素，是不符合逻辑的，因为“训练时长”不是“髓磷脂”多与少的本质原因。</p>
-<h3 id="二、什么是有效的练习？"><a href="#二、什么是有效的练习？" class="headerlink" title="二、什么是有效的练习？"></a>二、什么是有效的练习？</h3><p> 作者提出了三个条件：</p>
-<ol>
-<li><strong>练习必须是持续的；</strong></li>
-<li><strong>练习的过程中，注意力必须是高度集中的；</strong></li>
-<li><strong>练习时要瞄准现有能力模块中有缺陷的部分；</strong></li>
+      <h1 id="Vue中Echarts组件获取点击数据"><a href="#Vue中Echarts组件获取点击数据" class="headerlink" title="Vue中Echarts组件获取点击数据"></a>Vue中Echarts组件获取点击数据</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>大多数数据展示都会使用Echarts图表进行展示，但是如果遇到需要点击某一列的数据出发一个回调函数进行操作，列如放大点击列的数据，或拿到点击列的数据后执行某些操作。</p>
+<h3 id="一、如何获取点击列？"><a href="#一、如何获取点击列？" class="headerlink" title="一、如何获取点击列？"></a>一、如何获取点击列？</h3><ol>
+<li><p>配置图表属性 <strong>tooltip</strong><br><strong>trigger</strong>,<strong>axisPointer</strong>,<strong>triggerOn</strong>这三个属性必须配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tooltip: &#123;</span><br><span class="line">       trigger: &apos;axis&apos;,</span><br><span class="line">       showContent: false, //是否显示提示框浮层</span><br><span class="line">       axisPointer: &#123;</span><br><span class="line">         type: &apos;line&apos;,</span><br><span class="line">         lineStyle: &#123;</span><br><span class="line">           color: &quot;#d19a37&quot;</span><br><span class="line">         &#125;,</span><br><span class="line">         snap: true,</span><br><span class="line">       &#125;,</span><br><span class="line">       triggerOn: &quot;mousemove|click&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>点击回调接收</p>
+<ul>
+<li><p>引入组件 <a href="https://github.com/xlsdg/vue-echarts-v3" target="_blank" rel="noopener">vue-echarts-v3</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import echarts from &quot;vue-echarts-v3/src/lite.js&quot;;</span><br><span class="line">import &apos;echarts/lib/chart/line&apos;; //折线图</span><br><span class="line">import &apos;echarts/lib/component/tooltip&apos;; //引入提示框组件</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    vChart: echarts</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用组件vChart，注册回调 onReady</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;vChart</span><br><span class="line">  :option=&quot;chart_option&quot;</span><br><span class="line">  ref=&quot;chart&quot;</span><br><span class="line">  @ready=&quot;onReady&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>onReady回调函数监听图表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  onReady(instance, echarts) &#123;</span><br><span class="line">    let me = this;</span><br><span class="line">    let getData = params =&gt; &#123;</span><br><span class="line">      const pointInPixel = [params.offsetX, params.offsetY];</span><br><span class="line">      if (instance.containPixel(&quot;grid&quot;, pointInPixel)) &#123;</span><br><span class="line">        let xIndex = instance.convertFromPixel(&#123; seriesIndex: 0 &#125;, [</span><br><span class="line">          params.offsetX,</span><br><span class="line">          params.offsetY</span><br><span class="line">        ])[0];</span><br><span class="line">        // console.log(xIndex)</span><br><span class="line">        let my_data_obj = me.chart_option;</span><br><span class="line">        let obj = &#123;</span><br><span class="line">          price: my_data_obj.series[0].data[xIndex],</span><br><span class="line">          ave: my_data_obj.series[1].data[xIndex],</span><br><span class="line">          date: my_data_obj.xAxis.data[xIndex]</span><br><span class="line">        &#125;;</span><br><span class="line">        me.chart_1_data_obj = obj</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    instance.getZr().on(&quot;click&quot;, getData);</span><br><span class="line">    instance.getZr().on(&quot;mousemove&quot;, getData);</span><br><span class="line">    instance.getZr().on(&quot;mousedown&quot;, params =&gt; &#123;</span><br><span class="line">      me.is_touch_chart_1 = true;</span><br><span class="line">      me.$refs.chart.mergeOption(&#123;</span><br><span class="line">        tooltip: &#123;</span><br><span class="line">          show: true</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    instance.getZr().on(&quot;mouseup&quot;, params =&gt; &#123;</span><br><span class="line">      me.is_touch_chart_1 = false;</span><br><span class="line">      me.$refs.chart.mergeOption(&#123;</span><br><span class="line">        tooltip: &#123;</span><br><span class="line">          show: false</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
 </ol>
-<p>这三个条件，也不难理解。有效的练习必须是有规律的，一心一意的，还得针对较弱的能力模块进行专项训练。任何断断续续的、三心二意的的练习，肯定是低效的；其次，只练习自己擅长的，那么永远也弥补不了较弱的能力模块。</p>
-<h3 id="三、如何才能有效的进行练习？"><a href="#三、如何才能有效的进行练习？" class="headerlink" title="三、如何才能有效的进行练习？"></a>三、如何才能有效的进行练习？</h3><p>上述我们已经知道了有效练习的三个必须条件。那么在战术上，我们该如何执行才能有效地练习呢？作者给出了以下四个建议，分别是：</p>
-<ol>
-<li><strong>要专注于手头上正在进行的训练任务</strong> ： 把外界干扰因素降到最低，比如手机、电视等尽量关掉；训练过程中，尽量不要理会社交网络，以减少分心。</li>
-<li><strong>入门训练时要刻意地慢一些</strong> ： 对任何一项技能，刚刚入门时不要一味地求快，训练动作要一个一个地做；一开始也不要过分地追求对与错，在入门阶段的训练，一些动作不标准也属正常，重复得多了自然而然就能做对了。</li>
-<li><strong>练习的过程中要有计划地安排休息</strong> ： 提前制定好训练计划，练习一定时长后休息一会儿，要把握好练习的节奏，劳逸结合；不可三天打鱼、两天晒网。</li>
-<li><strong>在大脑中进行想象练习</strong> ： 作者尤其强调了这一点，一个动作一旦被身体完成过以后，仅靠大脑的想象也可以强化训练；<strong>在大脑中反复地重演这个动作细节，是有效练习的重要部分。</strong></li>
-</ol>
-<h3 id="四、结语"><a href="#四、结语" class="headerlink" title="四、结语"></a>四、结语</h3><p>有效练习的战术方法论，作者给出了上述四点建议，有效的练习方能刺激我们大脑生成更多的“髓磷脂”。有效的练习才能激发我们的潜力，帮助我们突破极限。</p>
-<p>任何技能，都需要练习才能达到精通，然而练习也分为高效练习和随意练习。关于练习的效率和时长，看上去是一对彼消此长的变量，练习的效率越高，就能在更短的时间里成为高手。这让我们更加清晰地看到了“成为高手”的本质是什么，片面地盲目地相信“一万小时定律”是不科学的。</p>
-<p>我们更应该关注练习的效率，在练习的战术方法论上下功夫。最后强调一点的是，练习未必都要动手动脚，我们还可以像作者建议的那样，动动脑也可以，使用大脑想象来练习，在大脑中一帧一帧地重演每个动作的细节。</p>
-<p>学习很难，有效地学习更难。时常关注并反思我们的学习方法和效率，会少走很多弯路的。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>onReady回调函数拿到当前点击的echarts实例对象，以便对整个canvas区域点击监听。</li>
+<li>getData函数接收绑定的原生事件返回的结果（当前用户点击的区域坐标）</li>
+<li>通过echarts API convertFromPixel方法拿到用户点击的数据下标，通过下标获得用户点击的数据</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/smk108/article/details/78482154" target="_blank" rel="noopener">完美解决echarts的柱状图和折线图的点击非图表图形元素不会触发事件</a><br><a href="https://blog.csdn.net/qq_24065713/article/details/84771570" target="_blank" rel="noopener">echarts监听点击（空白处）事件，echarts监听滑动事件</a></p>
 
     </div>
   </div>
@@ -260,7 +261,7 @@
         
           本文作者 : Derek <br>
         
-        原文链接 : <a href>http://blog.lovemma.cn/passages/How-to-learn-effectively/</a><br>
+        原文链接 : <a href>http://blog.lovemma.cn/passages/Vue中Echarts组件获取点击数据/</a><br>
         版权声明 : 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
         </blockquote>
       </div>
@@ -283,8 +284,8 @@
           <i class="iconfont icon-06tags"></i>标签: 
           
           <span class="span--tag">
-            <a href="/tags/学习/">
-              #学习
+            <a href="/tags/Echarts/">
+              #Echarts
             </a>
           </span>
           
@@ -309,15 +310,9 @@
       <div class="nav-pre">
         <i class="iconfont icon-prev"></i>
         上一篇:
-        <a href="/passages/hello-world/" target="_self">How to use Hexo ?</a>
+        <a href="/passages/How-to-learn-effectively/" target="_self">How to learn effectively?</a>
       </div>
     
-    
-      <div class="nav-next">
-        下一篇:
-        <a href="/passages/Vue中Echarts组件获取点击数据/" target="_self">Vue中Echarts组件获取点击数据</a>
-        <i class="iconfont icon-next"></i>
-      </div>
     
   </nav>
 
