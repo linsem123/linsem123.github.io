@@ -226,7 +226,7 @@
   <div class="article-content">
     <div class="markdown-body">
       <h1 id="Vue中Echarts组件获取点击数据"><a href="#Vue中Echarts组件获取点击数据" class="headerlink" title="Vue中Echarts组件获取点击数据"></a>Vue中Echarts组件获取点击数据</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>大多数数据展示都会使用Echarts图表进行展示，但是如果遇到需要点击某一列的数据出发一个回调函数进行操作，列如放大点击列的数据，或拿到点击列的数据后执行某些操作。</p>
-<h3 id="一、如何获取点击列？"><a href="#一、如何获取点击列？" class="headerlink" title="一、如何获取点击列？"></a>一、如何获取点击列？</h3><ol>
+<h3 id="一、实现过程"><a href="#一、实现过程" class="headerlink" title="一、实现过程"></a>一、实现过程</h3><ol>
 <li><p>配置图表属性 <strong>tooltip</strong><br><strong>trigger</strong>,<strong>axisPointer</strong>,<strong>triggerOn</strong>这三个属性必须配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tooltip: &#123;</span><br><span class="line">       trigger: &apos;axis&apos;,</span><br><span class="line">       showContent: false, //是否显示提示框浮层</span><br><span class="line">       axisPointer: &#123;</span><br><span class="line">         type: &apos;line&apos;,</span><br><span class="line">         lineStyle: &#123;</span><br><span class="line">           color: &quot;#d19a37&quot;</span><br><span class="line">         &#125;,</span><br><span class="line">         snap: true,</span><br><span class="line">       &#125;,</span><br><span class="line">       triggerOn: &quot;mousemove|click&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -244,7 +244,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<h3 id="二、总结"><a href="#二、总结" class="headerlink" title="二、总结"></a>二、总结</h3><ul>
 <li>onReady回调函数拿到当前点击的echarts实例对象，以便对整个canvas区域点击监听。</li>
 <li>getData函数接收绑定的原生事件返回的结果（当前用户点击的区域坐标）</li>
 <li>通过echarts API convertFromPixel方法拿到用户点击的数据下标，通过下标获得用户点击的数据</li>
