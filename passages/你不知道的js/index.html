@@ -225,27 +225,16 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h1 id="你不知道的js"><a href="#你不知道的js" class="headerlink" title="你不知道的js"></a>你不知道的js</h1><ol>
-<li>window.location.hash<br><a href="https://www.cnblogs.com/canger/p/7595641.html" target="_blank" rel="noopener">window.location.hash 使用</a><br>// <a href="http://www.example.com/index.html#print" target="_blank" rel="noopener">http://www.example.com/index.html#print</a><br>// 就代表网页index.html的print位置。浏览器读取这个URL后，会自动将print位置滚动至可视区域。<br>单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。<br>改变#会改变浏览器的访问历史.<br>每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用”后退”按钮，就可以回到上一个位置。<br>onhashchange事件<br>window.onhashchange = func;</li>
-<li>npm i -save -save-dev 区别</li>
-</ol>
-<ul>
+      <h1 id="《你不知道的js》"><a href="#《你不知道的js》" class="headerlink" title="《你不知道的js》"></a>《你不知道的js》</h1><h3 id="1-window-location-hash"><a href="#1-window-location-hash" class="headerlink" title="1. window.location.hash"></a>1. window.location.hash</h3><p><a href="https://www.cnblogs.com/canger/p/7595641.html" target="_blank" rel="noopener">window.location.hash 使用</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.example.com/index.html#print</span><br></pre></td></tr></table></figure></p>
+<p>就代表网页index.html的print位置。浏览器读取这个URL后，会自动将print位置滚动至可视区域。<br>单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。<br>改变#会改变浏览器的访问历史.<br>每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用”后退”按钮，就可以回到上一个位置。<br><strong>onhashchange事件</strong>: hash发生变化时触发<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.onhashchange = func;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-npm-i-save-save-dev-区别"><a href="#2-npm-i-save-save-dev-区别" class="headerlink" title="2. npm i -save -save-dev 区别"></a>2. npm i -save -save-dev 区别</h3><ul>
 <li>npm i XXX: 安装项目到项目目录下，不会将模块依赖写入到devDependencies或dependencies</li>
 <li>npm i -g XXX: -g 的意思是将模块安装的全局，具体安装到磁盘的哪一个位置，依赖于npm config prefix的位置</li>
 <li>npm i -save XXX: -save 的意思是将模块安装到项目目录下面，并在package文件的dependencies节点写入依赖</li>
 <li>npm i -save-dev XXX: -save-dev 的意思是将模块安装的项目目录下，并在package文件的devDependencies节点写入依赖。</li>
 </ul>
-<ol start="3">
-<li>获取根结点字体大小</li>
-</ol>
-<ul>
-<li><figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- ``` Number(getComputedStyle(window.document.documentElement)[&apos;font-size&apos;].replace(&apos;px&apos;, &apos;&apos;))</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol start="4">
-<li>javascript正则表达式/g与/i及/gi的意义<br>例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regularexpression=/pattern/[switch] // 这个switch就有三种值</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h3 id="3-获取根结点字体大小"><a href="#3-获取根结点字体大小" class="headerlink" title="3. 获取根结点字体大小"></a>3. 获取根结点字体大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getComputedStyle(window.document.documentElement)[&apos;font-size&apos;]</span><br><span class="line">Number(getComputedStyle(window.document.documentElement)[&apos;font-size&apos;].replace(/px/gi, &apos;&apos;))</span><br></pre></td></tr></table></figure>
+<h3 id="4-javascript正则表达式-g与-i及-gi的意义"><a href="#4-javascript正则表达式-g与-i及-gi的意义" class="headerlink" title="4. javascript正则表达式/g与/i及/gi的意义"></a>4. javascript正则表达式/g与/i及/gi的意义</h3><p>例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regularexpression=/pattern/[switch] // 这个switch就有三种值</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>g: 全局匹配 </li>
 <li>i: 忽略大小写 </li>
